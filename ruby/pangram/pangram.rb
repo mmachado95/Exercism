@@ -1,5 +1,6 @@
 class Pangram
   def self.pangram?(sentence)
-    ('a'..'z').all? { |word| sentence.downcase.include? (word) }
+    number_of_unique_letters = sentence.downcase.scan(/[a-z]/).uniq.count
+    number_of_unique_letters == 26
   end
 end
