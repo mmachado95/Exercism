@@ -1,8 +1,17 @@
-=begin
-Write your code for the 'Word Count' exercise in this file. Make the tests in
-`word_count_test.rb` pass.
+class Phrase
+  attr_accessor :input
 
-To get started with TDD, see the `README.md` file in your
-`ruby/word-count` directory.
-=end
+  def initialize(input)
+    self.input = input
+  end
 
+  def word_count
+    words.tally
+  end
+
+  private
+
+  def words
+    input.downcase.scan(/\b[\w\']+\b/)
+  end
+end
